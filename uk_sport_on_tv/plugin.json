@@ -1,7 +1,7 @@
 {
   "name": "UK Sport on TV",
-  "version": "0.2.0",
-  "description": "Which UK channel shows each televised football match, weeks ahead (Sky Sports, TNT Sports, Premier Sports, BBC, ITV, Amazon…), from live-footballontv.com: added to those channels' guides at the time of each match (where the guide has nothing then), and kept in the plugin's settings for players such as Viewarr. Refreshed after each EPG refresh (at most every 6 hours).",
+  "version": "0.3.0",
+  "description": "Which channel shows each UK football match, weeks ahead: UK TV (Sky Sports, TNT Sports, Premier Sports, BBC, ITV…, from live-footballontv.com), and club channels (Celtic TV, Hearts TV…) for the home club's games UK TV doesn't show. Added to those channels' guides at each match's time (gaps only) and kept for players such as Viewarr. Polite, cached fetching.",
   "author": "petebutty",
   "license": "MIT",
   "source_type": "external",
@@ -22,6 +22,13 @@
       "type": "boolean",
       "default": true,
       "help_text": "Puts each match on the channels showing it, at its time, where the guide has nothing then (weeks beyond most guides). Never changes the provider's own programmes. Re-added after every EPG refresh."
+    },
+    {
+      "id": "club_channels",
+      "label": "Club channels",
+      "type": "boolean",
+      "default": true,
+      "help_text": "Club channels in your lineup ('SPFL - CELTIC TV', 'EPL - LFC TV', MUTV…): each league game that isn't on UK TV is added to the HOME club's channel (the home club streams it), if you have that channel. Fixtures from ESPN's public data. Whether a club actually streams a game depends on the club and where you are."
     }
   ],
   "actions": [
