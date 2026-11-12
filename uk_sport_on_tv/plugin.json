@@ -1,0 +1,47 @@
+{
+  "name": "UK Sport on TV",
+  "version": "0.1.0",
+  "description": "Which UK channel shows each televised football match, weeks ahead (Sky Sports, TNT Sports, Premier Sports, BBC, ITV, Amazon…), from live-footballontv.com. Refreshed after each EPG refresh (at most every 6 hours). Players such as Viewarr read it to say where a game is on before it reaches your guide.",
+  "author": "petebutty",
+  "license": "MIT",
+  "source_type": "external",
+  "repo_url": "https://github.com/petebutty/uk-sport-on-tv",
+  "help_url": "https://github.com/petebutty/uk-sport-on-tv#readme",
+  "source_url": "https://github.com/petebutty/uk-sport-on-tv/releases/download/v{version}/uk-sport-on-tv-{version}.zip",
+  "fields": [
+    {
+      "id": "days_ahead",
+      "label": "Days ahead",
+      "type": "number",
+      "default": 30,
+      "help_text": "How many days of listings to keep (the source lists a few months; fewer keeps the data small)."
+    }
+  ],
+  "actions": [
+    {
+      "id": "refresh",
+      "label": "Refresh listings now",
+      "description": "Fetches the latest UK TV football listings.",
+      "button_label": "Refresh",
+      "button_variant": "filled"
+    },
+    {
+      "id": "status",
+      "label": "Show status",
+      "description": "When the listings were last fetched, how many matches, and the next few.",
+      "button_label": "Status",
+      "button_variant": "default"
+    },
+    {
+      "id": "on_epg_refresh",
+      "label": "After EPG Refresh (automatic)",
+      "description": "Runs by itself after an EPG refresh; fetches only when the listings are over 6 hours old.",
+      "button_label": "Run",
+      "button_variant": "outline",
+      "button_color": "gray",
+      "events": [
+        "epg_refresh"
+      ]
+    }
+  ]
+}
