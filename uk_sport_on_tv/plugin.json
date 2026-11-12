@@ -1,7 +1,7 @@
 {
   "name": "UK Sport on TV",
-  "version": "0.1.0",
-  "description": "Which UK channel shows each televised football match, weeks ahead (Sky Sports, TNT Sports, Premier Sports, BBC, ITV, Amazon…), from live-footballontv.com. Refreshed after each EPG refresh (at most every 6 hours). Players such as Viewarr read it to say where a game is on before it reaches your guide.",
+  "version": "0.2.0",
+  "description": "Which UK channel shows each televised football match, weeks ahead (Sky Sports, TNT Sports, Premier Sports, BBC, ITV, Amazon…), from live-footballontv.com: added to those channels' guides at the time of each match (where the guide has nothing then), and kept in the plugin's settings for players such as Viewarr. Refreshed after each EPG refresh (at most every 6 hours).",
   "author": "petebutty",
   "license": "MIT",
   "source_type": "external",
@@ -15,6 +15,13 @@
       "type": "number",
       "default": 30,
       "help_text": "How many days of listings to keep (the source lists a few months; fewer keeps the data small)."
+    },
+    {
+      "id": "add_to_guide",
+      "label": "Add matches to channel guides",
+      "type": "boolean",
+      "default": true,
+      "help_text": "Puts each match on the channels showing it, at its time, where the guide has nothing then (weeks beyond most guides). Never changes the provider's own programmes. Re-added after every EPG refresh."
     }
   ],
   "actions": [
@@ -31,6 +38,14 @@
       "description": "When the listings were last fetched, how many matches, and the next few.",
       "button_label": "Status",
       "button_variant": "default"
+    },
+    {
+      "id": "remove_guide",
+      "label": "Remove added matches",
+      "description": "Takes every match this plugin added out of the guide (turn off 'Add matches to channel guides' too, or they come back at the next refresh).",
+      "button_label": "Remove",
+      "button_variant": "outline",
+      "button_color": "red"
     },
     {
       "id": "on_epg_refresh",
